@@ -37,6 +37,7 @@ class CuentaTest {
 	
 	@Test
 	void testReIntregro() {
+		cuent.ingreso((25));
 		cuent.reintegro(25);
 		assertEquals(0,cuent.getSaldo());
 	}
