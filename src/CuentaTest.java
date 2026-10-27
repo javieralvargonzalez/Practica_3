@@ -41,4 +41,28 @@ class CuentaTest {
 		cuent.reintegro(25);
 		assertEquals(0,cuent.getSaldo());
 	}
+	
+	@Test
+    void test0014() {
+		
+        Cuenta c12345 = new Cuenta(50);
+        c12345.setNumero("12345");
+
+        Cuenta c67890 = new Cuenta(0);
+        c67890.setNumero("67890");
+
+       
+        c12345.reintegro(200); 
+        c67890.reintegro(350); 
+        c12345.ingreso(100);   
+        c67890.reintegro(200); 
+        c67890.reintegro(150); 
+        c12345.reintegro(200); 
+        c67890.ingreso(50);    
+        c67890.reintegro(100); 
+
+        
+        assertEquals(-250, c12345.getSaldo()); 
+        assertEquals(-450, c67890.getSaldo()); 
+    }
 }
